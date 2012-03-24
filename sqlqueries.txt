@@ -1,0 +1,45 @@
+# Select a user
+select * from users where users.name = "Mark Gray";
+
+
+# Select opinions for one topic
+select * from topic, opinions
+where 
+opinions.topic = topic.id
+and topic.id = 1;
+
+
+# Select votes for all topics
+select opinions.id, count(votes.id), votes.up,opinions.pro from topic, opinions, votes
+where 
+opinions.topic = topic.id
+and votes.opinion = opinions.id
+group by opinions.id;
+
+# Select tags for one topic
+select tags.*, opinions.* from topic,opinionstags,tags,opinions
+where
+opinions.topic = topic.id
+and opinionstags.opinion = opinions.id
+and opinionstags.tag = tags.id
+and topic.id = 1;
+
+
+# Select tags for one topic
+select tags.name, opinions.id as opinionid from topic,opinionstags,tags,opinions
+where
+opinions.topic = topic.id
+and opinionstags.opinion = opinions.id
+and opinionstags.tag = tags.id
+and topic.id = 1;
+
+
+# Select votes for one tag - Tag credibility
+select sum(votes.up),tags.name from topic,opinionstags,tags,opinions,votes
+where
+opinions.topic = topic.id
+and opinionstags.opinion = opinions.id
+and opinionstags.tag = tags.id
+and opinions.id = votes.opinion
+group by tags.name
+
