@@ -1,3 +1,20 @@
+body {
+	background:url('/images/whitey.png');
+}
+.container {
+	width:820px !important;
+}
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px 18px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
 /*!
  * Bootstrap v2.0.2
  *
@@ -3277,8 +3294,8 @@ input[type="submit"].btn.btn-mini {
   left: 50%;
   z-index: 1050;
   overflow: auto;
-  width: 560px;
-  margin: -250px 0 0 -280px;
+  width: 680px;
+  margin: -400px 0 0 -360px;
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -3315,7 +3332,7 @@ input[type="submit"].btn.btn-mini {
 }
 .modal-body {
   overflow-y: auto;
-  max-height: 400px;
+  /* max-height: 400px; */
   padding: 15px;
 }
 .modal-form {
