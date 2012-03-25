@@ -1,5 +1,12 @@
-<ul>
-	{{#topics}}
-		<li><a href="/topic/{{slug}}">{{title}}</li>
-	{{/topics}}
-</ul>
+<div class="content">
+	<div class="alert alert-info">
+		<strong>Warning! Alpha software!</strong>
+		<p>This is a proof of concept done by a team of enthusiastic entrepreneurs at a Startup Weekend in Copenhagen.</p>
+	</div>
+	<h2>Lastest topics you can discuss</h2>
+	<ul>
+		{{#topics}}
+			<li><a href="/topic/{{slug}}">{{title}}</li>
+		{{/topics}}
+	</ul>
+</div>
