@@ -1,8 +1,9 @@
 var express = require('express'),	
 	handlebars = require('handlebars'),	
 	passport = require('passport'),
+	querystring = require("querystring"),
 	auth = require('./lib/auth'),
-	db = require('./lib/db.js'),
+	db = require('./lib/db.js'),	
 	app = express.createServer();
 
 app.configure(function() {
@@ -27,19 +28,49 @@ app.configure('production', function(){
 	app.use(express.errorHandler()); 
 });
 
+
+
 // Routes
 app.get('/', function(req, res) {
 	db.getLast(function(error, results) {
+		function slugify(text) {
+			text = text.replace(/[^-a-zA-Z0-9,&\s]+/ig, '').toLowerCase();
+			text = text.replace(/-/gi, "_");
+			text = text.replace(/\s/gi, "-");
+			return text;
+		}
 		var topics = [];
-		console.log(results);
-		results.map(function(res, next) {
-			console.log(res.id, next);
-		});
+		var id = null;
+		results.forEach(function(item) {
+			var obj = {
+				id: item.topicid,
+				title: item.title,
+				slug: item.topicid + '-' + slugify(item.title)
+			}
+			if(item.topicid !== id) {
+				topics.push(obj);
+				id = item.topicid;
+			}			
+		});		
 		res.render('index.html', {
 			title: 'Decide it!',
-			locals: {name: 'Tomaz'}
-		});
+			locals: {topics: topics}
+		});		
 	});
+});
+
+app.get('/topic/:title', function(req, res) {
+	var id = req.params.title.substr(0,req.params.title.indexOf('-'));
+	db.getSingle(id, function(error, results) {
+		console.log(results);
+		res.render('topic.html', {
+			title: 'Decide it! :: Login',
+		});		
+	});
+});
+
+app.get('/topic', function(req, res, next) {
+	res.redirect('/');
 });
 
 app.get('/login', function(req, res) {
