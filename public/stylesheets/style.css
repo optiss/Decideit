@@ -138,7 +138,8 @@ div.buttonAdd a{
 
 div.titlebox{
 	background-color: white; 
-  	min-height:330px;
+  	/* min-height:330px; */
+	padding-bottom:50px;
 }
 
 div.votesPoints{
@@ -177,18 +178,20 @@ div.commentContainer{
 	margin:130px 15px 0 15px;
 }
 div.commentContainer form {
-	margin-top:20px;
+	margin:20px 0;
 }
 div.commentContainer form textarea{
 	width:260px;
 }
-button.sbmt {
-	float:right;
+.holder {
+	text-align:right;
 }
 div.commentBoks{
 	padding: 5px;
 }
-
+.input-xxlarge {
+	height:100px;
+}
 div.footer{
 	bottom:0%;
 	width:100%;

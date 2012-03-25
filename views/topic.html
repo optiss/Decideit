@@ -6,8 +6,8 @@
 
 
 	<div class="scorbar dropshadow">
-		<h2 class="procent left">67%</h2>
-		<h2 class="procent right">33%</h2>
+		<h2 class="procent left">{{pro_percent}}%</h2>
+		<h2 class="procent right">{{con_percent}}%</h2>
 	</div>
 
 
@@ -16,19 +16,28 @@
 		<div class="proHeader dropshadowinset">
 			<h2>PRO</h2>
 		</div>
+		<!--
 		<div class="buttonAdd">
 			<a href="#">+ Add pro</a>
     	</div>
+		-->
 		<div class="commentContainer">
-			<div class="commentBoks">
-				<h3>Comment</h3><a href="#">See the hole opinion</a>
-				<hr />
-			</div>
+			{{#unless pros}}
+				<div class="alert">There are no cons. Be the first one!<br /><strong>Log in and submit!</strong></div>
+			{{/unless}}
+			{{#pros}}
+				<div class="commentBoks">
+					<strong>{{this.name}}:</strong>
+					<p>{{this.text}}</p>
+	        		<hr />
+				</div>
+			{{/pros}}
 			{{#if user}}
 				<form action="" method="post" name="pro">
 					<label class="control-label" for="textareapro">Your PROs:</label>
 					<textarea id="textareapro" name="opinion_pro" rows="3"></textarea>
-					<button class="btn sbmt" type="submit">Submit</button>
+					<p class="help-block">Be polite and meaningful.</p>
+					<div class="holder"><button class="btn" type="submit">Submit</button></div>
 				</form>
 			{{/if}}
 		</div>
@@ -38,45 +47,34 @@
 		<div class="conHeader dropshadowinset">
 			<h2>CON</h2>
 		</div>
+		<!--
 		<div class="buttonAdd">
 			<a href="#">+ Add con</a>
 		</div>
+		-->
 		<div class="commentContainer">
-			<div class="commentBoks">
-				<h3>Comment</h3><a href="#">See the hole opinion</a>
-        		<hr />
-			</div>
+			{{#unless cons}}
+				<div class="alert">There are no cons. Be the first one!<br /><strong>Log in and submit!</strong></div>
+			{{/unless}}
+			{{#cons}}
+				<div class="commentBoks">
+					<strong>{{this.name}}:</strong>
+					<p>{{this.text}}</p>
+	        		<hr />
+				</div>
+			{{/cons}}
+			
 			{{#if user}}
-				<form action="" method="post" name="pro">
+				<form action="" method="post" name="con">
 					<label class="control-label" for="textareacon">Your CONs:</label>
 					<textarea id="textareacon" name="opinion_con" rows="3"></textarea>
-					<button class="btn sbmt" type="submit">Submit</button>
+					<p class="help-block">Be polite and meaningful.</p>
+					<div class="holder"><button class="btn" type="submit">Submit</button></div>
 				</form>
 			{{/if}}
 		</div>
 		
 	</div>
 </div>
-
-
-
-
-
-<!--
-<div class="row">
-
-	
-	<div class="pro dropshadow span8">
-		
-  	</div>
-
-	<div class="pro dropshadow span8">
-		
-	</div>
-</div>
-
-<div class="con dropshadow"></div>
--->
-
 
 

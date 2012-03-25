@@ -1,0 +1,31 @@
+<div class="content">
+  <form action="/submit" class="form-horizontal" method="post">
+    <fieldset>
+      <legend>Submit a topic</legend><br />
+	{{#if error}}
+		<div class="alert alert-error">
+	        <p style="margin:0;">Both fields need to have at least 50 characters!</p>
+	      </div>
+	{{/if}}
+      <div class="control-group">
+        <label class="control-label" for="title">Title:</label>
+        <div class="controls">
+          <input type="text" class="input-xlarge" name="title" id="title" value="{{topic}}" />
+          <p class="help-block">Short and meaningful please.</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="text">Description:</label>
+        <div class="controls">
+          <textarea class="input-xxlarge" name="text" id="text">{{text}}</textarea>
+          <p class="help-block">Short description of what you want to discuss. Don't write novels.</p>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit the topic</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
