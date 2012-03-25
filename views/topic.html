@@ -1,62 +1,82 @@
-<div class="row">
-	<div class="titlebox dropshadow span12">
-		<div class="votesPoints">
-			<p id="votes">Votes: 325</p>
-			<p id="points">Points:124</p>
-		</div>
 
-		<h1 id="title" class="titlebox">Titel</h1>
-		<h2 id="subtitle" class="titlebox">Subtitle</h2>
+	<div class="titlebox dropshadow">
+		<h1 id="title" class="titlebox">{{topic.title}}</h1>
+		<h2 id="subtitle" class="titlebox">{{topic.description}}</h2>
 	</div>
 
-	<div class="links dropshadow span12">
-		<a href="#">First link</a> <a href="#">Second link</a>
-		<a href="#">Third link</a> <a href="#">Fourth link</a>
+
+	<div class="scorbar dropshadow">
+		<h2 class="procent left">67%</h2>
+		<h2 class="procent right">33%</h2>
 	</div>
 
-	<div class="scorbar dropshadow span12">
-		<h2 class="procent_left whiteH2">67%</h2>
-		<h2 class="procent_right whiteH2">33%</h2>
-	</div>
-	
-	<div class="pro dropshadow span8">
+
+<div class="row opinions">
+	<div class="pro dropshadow span4 offset1">
 		<div class="proHeader dropshadowinset">
-			<h2 class="whiteH2">PRO</h2>
+			<h2>PRO</h2>
 		</div>
-		<div class="buttonAdd dropshadow">
+		<div class="buttonAdd">
 			<a href="#">+ Add pro</a>
     	</div>
 		<div class="commentContainer">
-			<div class="commentBoks dropshadow">
+			<div class="commentBoks">
 				<h3>Comment</h3><a href="#">See the hole opinion</a>
 				<hr />
 			</div>
+			{{#if user}}
+				<form action="" method="post" name="pro">
+					<label class="control-label" for="textareapro">Your PROs:</label>
+					<textarea id="textareapro" name="opinion_pro" rows="3"></textarea>
+					<button class="btn sbmt" type="submit">Submit</button>
+				</form>
+			{{/if}}
 		</div>
-  	</div>
-
-	<div class="pro dropshadow span8">
+		
+	</div>
+	<div class="pro dropshadow span4">
 		<div class="conHeader dropshadowinset">
-			<h2 class="whiteH2">CON</h2>
+			<h2>CON</h2>
 		</div>
-		<div class="buttonAdd dropshadow">
-			<a href="#">+ Add pro</a>
+		<div class="buttonAdd">
+			<a href="#">+ Add con</a>
 		</div>
 		<div class="commentContainer">
-			<div class="commentBoks dropshadow">
+			<div class="commentBoks">
 				<h3>Comment</h3><a href="#">See the hole opinion</a>
         		<hr />
 			</div>
+			{{#if user}}
+				<form action="" method="post" name="pro">
+					<label class="control-label" for="textareacon">Your CONs:</label>
+					<textarea id="textareacon" name="opinion_con" rows="3"></textarea>
+					<button class="btn sbmt" type="submit">Submit</button>
+				</form>
+			{{/if}}
 		</div>
+		
+	</div>
+</div>
+
+
+
+
+
+<!--
+<div class="row">
+
+	
+	<div class="pro dropshadow span8">
+		
+  	</div>
+
+	<div class="pro dropshadow span8">
+		
 	</div>
 </div>
 
 <div class="con dropshadow"></div>
+-->
 
-<div class="related dropshadow" style="width: 197px;">
-  <h1 id="relatedtitel">Related</h1>
-  <p id="news">First related topic</p>
-  <p id="news">Second related topic</p>
-  <p align="center"><a href="#">Show more</a></p>
-</div>
 
 

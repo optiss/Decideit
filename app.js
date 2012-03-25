@@ -28,7 +28,17 @@ app.configure('production', function(){
 	app.use(express.errorHandler()); 
 });
 
-
+app.dynamicHelpers({
+	user: function(req, res) {
+		return req.user;
+	},
+	session: function(req, res){
+		return req.session;
+	},
+	flash: function(req, res){
+		return req.flash();
+	}
+});
 
 // Routes
 app.get('/', function(req, res) {
@@ -62,11 +72,19 @@ app.get('/', function(req, res) {
 app.get('/topic/:title', function(req, res) {
 	var id = req.params.title.substr(0,req.params.title.indexOf('-'));
 	db.getSingle(id, function(error, results) {
-		console.log(results);
+		var topic = results[0]
 		res.render('topic.html', {
-			title: 'Decide it! :: Login',
+			title: 'Decide it! :: ' + topic['title'],
+			topic: topic
 		});		
 	});
+});
+
+app.post('/topic/:title', auth.ensureAuthenticated, function(req, res) {
+	var id = req.params.title.substr(0,req.params.title.indexOf('-'));
+	console.log(req.body.opinion_pro);
+	console.log(req.body.opinion_con);	
+	res.redirect(req.params.title);
 });
 
 app.get('/topic', function(req, res, next) {
@@ -76,13 +94,6 @@ app.get('/topic', function(req, res, next) {
 app.get('/login', function(req, res) {
 	res.render('login.html', {
 		title: 'Decide it! :: Login',
-	});
-});
-
-app.get('/inside', auth.ensureAuthenticated, function(req,res) {
-	res.render('inside.html', {
-		title: 'Decide it! :: Inside',
-		locals: {user: req.user}
 	});
 });
 

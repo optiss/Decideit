@@ -9,13 +9,13 @@
 	<title>{{title}}</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" href="stylesheets/bootstrap.css">
-	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
 	<script src="/javascripts/modernizr-2.5.3.min.js"></script>	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="/javascripts/jquery-1.7.1.min.js"><\/script>')</script>
 	<script src="/javascripts/bootstrap-modal.js"></script>	
-	<script src="javascripts/script.js"></script>	
+	<script src="/javascripts/script.js"></script>	
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -23,11 +23,12 @@
 		<div class="navbar-inner">
 			<div class="container">				
 				<a class="brand" href="#">Decide it</a>
-				<form class="navbar-search pull-left" action="">
-					<input type="text" class="search-query span2" placeholder="Search">
-				</form>
 				<ul class="nav pull-right">
-					<li><a href="/logout">Logout</a></li>
+					{{#if user}}
+						<li><a href="/logout">Logout</a></li>
+					{{else}}
+						<li><a href="/login">Login / Sign up</a></li>
+					{{/if}}
 				</ul>			   
 			</div>
 		</div>

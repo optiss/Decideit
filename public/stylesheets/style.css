@@ -55,47 +55,66 @@ div.related{
   	z-index: -10;
 	background-color: white;   	
   }
-
+div.titlebox {
+	padding:30px 0 0 0;
+}
 h1.titlebox{
 	text-align: center;	
-	font-size: 6em;
-	margin-top: 50px;
+	font-size: 5em;
+	line-height:1.2;
 	padding: 20px;
 	color: #e54d2e; 	
 }
 h2.titlebox{
-	text-align: center;	
+	text-align: center;
+	font-size:18px;
+	line-height:1.3;
+	padding:0 20px;
 }
 
-h2.procent_left{
+div.scorbar{
+	margin:0 -50px;
+	padding:0;
+	background-color: #403737; 
+	position:relative;
+	height:150px;
+}
+h2.procent {
 	position: absolute;
-	padding: 50px;
-}
-
-h2.procent_right{
-	text-align: right;
-	padding: 50px;
-}
-
-.whiteH2{
-	
+	color:#fff;
 	font-size: 4em;	
-	color: white;	
+	line-height:150px;
+	
 }
-
+h2.procent.left {
+	left:20px;
+}
+h2.procent.right {
+	right:20px;
+}
+.opinions {
+	top:-160px;
+	position:relative;
+	z-index:200;
+	margin-left:0 !important;
+}
 div.proHeader{	
 	background-color: #403737; 
 	padding: 15px; 
-	margin-top: 45px;
+	top: 53px;
 	position:absolute;
 	z-index: 10;
 	margin-left: 15px;
+}
+div.proHeader h2, div.conHeader h2 {
+	color:#fff;
+	font-size: 4em;
 }
 
 div.conHeader{	
 	background-color: #403737; 
 	padding: 15px; 
-	margin-top: 45px;
+	top: 53px;
 	position:absolute;
 	z-index: 10;
 	margin-left: 15px;		
@@ -103,11 +122,11 @@ div.conHeader{
 
 div.buttonAdd{
 	background-color: #e54d2e; 
-	padding: 15px; 
-	margin-top: 55px;
+	padding: 8px; 
+	top: 65px;
 	position:absolute;
 	z-index: 10;	
-	margin-left: 175px;			
+	right:15px;			
 }
 
 div.buttonAdd a{
@@ -119,8 +138,7 @@ div.buttonAdd a{
 
 div.titlebox{
 	background-color: white; 
-	width: 858px; 	
-  	height:330px;
+  	min-height:330px;
 }
 
 div.votesPoints{
@@ -147,28 +165,27 @@ div.links a{
 	padding: 10px;
 }
 
-div.scorbar{
-	height: 150px;
-	width: 1000px;
-	margin-left:-50px;
-	background-color: #403737; 
-}
+
 
 div.pro{
-	margin-top: -160px;
-	width: 325px;
-	height: 400px;
+	position:relative;
+	min-height: 400px;
 	background-color: white;   	
 }
 
 div.commentContainer{
-	width: 285px;
-	margin-left: 15px;
-	margin-top: 130px;
+	margin:130px 15px 0 15px;
 }
-
+div.commentContainer form {
+	margin-top:20px;
+}
+div.commentContainer form textarea{
+	width:260px;
+}
+button.sbmt {
+	float:right;
+}
 div.commentBoks{
-	width: 280px;	
 	padding: 5px;
 }
 
